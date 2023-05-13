@@ -6,12 +6,12 @@
 #    By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/07 19:34:14 by jgo               #+#    #+#              #
-#    Updated: 2023/05/12 20:17:49 by jgo              ###   ########.fr        #
+#    Updated: 2023/05/13 18:54:26 by jgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-include ../makeConfig/Rules.mk
-include ../makeConfig/Color_rules.mk
+include ../make_config/Rules.mk
+include ../make_config/Color_rules.mk
 
 SRCS :=	main.cpp \
 		ClapTrap.cpp
@@ -22,4 +22,4 @@ OBJS := $(SRCS:.cpp=.o)
 DEPS := $(SRCS:.cpp=.d)
 -include $(DEPS)
 
-include ../makeConfig/Recipes.mk
+include ../make_config/Recipes.mk
