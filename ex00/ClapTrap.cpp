@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:49:59 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/12 20:36:13 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 16:05:35 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ClapTrap::ClapTrap(const ClapTrap& obj)
 	*this = obj;
 }
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap " << this->getName() << ": destruction... boom!"
+	std::cout << "ClapTrap " << this->getName() << " destruction... boom!"
 			  << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& inst) {
@@ -71,44 +71,64 @@ unsigned int ClapTrap::getInitAttackDamage(void) const {
 	return (this->init_attack_damage_);
 };
 
+void ClapTrap::setAttackDamage(unsigned int amount) {
+	this->attack_damage_ = amount;
+	std::cout << "ClapTrap [" << this->getName() << "] set AttackDamage to "
+			  << amount << std::endl;
+}
+
 void ClapTrap::attack(const std::string& target) {
 	if (this->getHitPoints() == 0 || this->getEnergyPoints() == 0) {
-		std::cout << "ClapTrap" << this->getName() << ": can't attack "
+		std::cout << "ClapTrap [" << this->getName() << "] can't attack "
 				  << target << " because out of hp/ep points" << std::endl;
 		return;
 	}
 	this->energy_points_--;
-	std::cout << "ClapTrap " << this->getName() << " attacks" << target
+	std::cout << "ClapTrap [" << this->getName() << "] attacks " << target
 			  << ", causing " << this->getAttackDamage() << " points of damage!"
 			  << std::endl;
 }
+
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->getHitPoints() == 0 || this->getEnergyPoints() == 0) {
-		std::cout << "ClapTrap " << this->getName() << ": can't repair "
+		std::cout << "ClapTrap [" << this->getName() << "] can't repair "
 				  << "because out of hp/ep points" << std::endl;
 		return;
 	}
-	const unsigned int prev_amount = amount;
 	this->energy_points_--;
-	if (this->hit_points_ + amount > this->getInitHitPoints())
+	std::cout << "ClapTrap [" << this->getName() << "] repair ";
+	if (this->hit_points_ + amount > this->getInitHitPoints()) {
+		std::cout << ((amount > this->getInitHitPoints())
+						  ? this->getInitHitPoints() - this->hit_points_
+						  : this->getInitHitPoints())
+				  << " points" << std::endl;
 		this->hit_points_ = this->getInitHitPoints();
-	else
+	} else {
 		this->hit_points_ += amount;
-	std::cout << "ClapTrap" << this->getName() << ":repair"
-			  << amount - prev_amount << "points" << std::endl;
+		std::cout << amount << " points" << std::endl;
+	}
 }
+
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (this->getHitPoints() == 0) {
 		std::cout << "there's no reaction...." << this->getName()
 				  << "may be it just died" << std::endl;
 		return;
 	}
-	std::cout << "ClapTrap" << this->getName() << "take " << amount << "damage";
-	if (this->hit_points_ <= amount)
+	const unsigned int prev_hp = this->hit_points_;
+	std::cout << "ClapTrap [" << this->getName() << "] take " << amount
+			  << " damage ";
+	this->hit_points_ -= amount;
+	if (prev_hp <= amount) {
 		std::cout << "boom!!" << std::endl;
-	else
+		this->hit_points_ = 0;
+	} else
 		std::cout << "ouch!!" << std::endl;
 }
 
-void prtStatus(void) const {
-};
+void ClapTrap::prtStatus(void) const {
+	std::cout << std::setw(5)  << "Name: " << this->getName() << "\n";
+	std::cout << std::setw(5)  << "HP: " << this->getHitPoints() << "\n";
+	std::cout << std::setw(5)  << "AD: " << this->getAttackDamage() << "\n";
+	std::cout << std::setw(5)  << "EP: " << this->getEnergyPoints() << "\n";
+}

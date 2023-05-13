@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:00 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/12 20:35:49 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/13 16:04:50 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CLAP_TRAP_HPP
 
 #include <iostream>
+#include <iomanip>
 
 class ClapTrap {
    private:
@@ -42,6 +43,7 @@ class ClapTrap {
 	unsigned int getInitHitPoints(void) const;
 	unsigned int getInitEnergyPoints(void) const;
 	unsigned int getInitAttackDamage(void) const;
+	void	setAttackDamage(unsigned int amount);
 	void prtStatus(void) const;
 };
 
