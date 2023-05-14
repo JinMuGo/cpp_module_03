@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 15:24:16 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/14 17:14:37 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/14 17:54:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name, 100, 50, 20) {
 	std::cout << STP_CTOR << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& inst) {
+ScavTrap::ScavTrap(const ScavTrap& inst): ClapTrap(inst) {
 	std::cout << STP_CPY_CTOR << std::endl;
 	if (this != &inst)
 		*this = inst;
