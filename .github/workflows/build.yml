@@ -15,5 +15,6 @@ jobs:
 
       - name: Build and test
         run: |
+          git submodule update --init
           docker build -t my-image .
           docker run my-image
