@@ -6,15 +6,14 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:00 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/13 16:04:50 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/14 16:04:11 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAP_TRAP_HPP
 #define CLAP_TRAP_HPP
 
-#include <iostream>
-#include <iomanip>
+#include "ClapTrap.h"
 
 class ClapTrap {
    private:

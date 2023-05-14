@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:49:59 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/13 16:05:35 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/14 16:06:19 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ ClapTrap::ClapTrap(void)
 	  attack_damage_(0),
 	  init_hit_points_(10),
 	  init_energy_points_(10),
-	  init_attack_damage_(0){};
+	  init_attack_damage_(0){
+		  std::cout << CTP_DFLT_CTOR << std::endl;
+	  };
 
 ClapTrap::ClapTrap(const std::string name)
 	: name_(name),
@@ -28,17 +30,20 @@ ClapTrap::ClapTrap(const std::string name)
 	  attack_damage_(0),
 	  init_hit_points_(10),
 	  init_energy_points_(10),
-	  init_attack_damage_(0){};
+	  init_attack_damage_(0){
+		  std::cout << CTP_CTR << std::endl;
+	  };
 
 ClapTrap::ClapTrap(const ClapTrap& obj)
 	: init_hit_points_(10), init_energy_points_(10), init_attack_damage_(0) {
+		std::cout << CTP_CPY_CTOR << std::endl;
 	*this = obj;
 }
 ClapTrap::~ClapTrap() {
-	std::cout << "ClapTrap " << this->getName() << " destruction... boom!"
-			  << std::endl;
+	std::cout << CTP_DTOR << std::endl;
 }
 ClapTrap& ClapTrap::operator=(const ClapTrap& inst) {
+	std::cout << CTP_CPY_ASGMT_OP_CALL << std::endl;
 	if (this != &inst) {
 		this->name_ = inst.getName();
 		this->energy_points_ = inst.getEnergyPoints();
