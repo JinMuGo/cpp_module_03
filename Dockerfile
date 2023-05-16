@@ -4,4 +4,4 @@ RUN apk update && apk add make g++
 
 WORKDIR /app
 COPY . /app
-RUN make
+RUN make && make fclean
