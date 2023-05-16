@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:49:59 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/14 17:14:18 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/16 15:43:56 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 void ClapTrap::takeDamage(unsigned int amount) {
 	if (this->getHitPoints() == 0) {
 		std::cout << "there's no reaction...." << this->getName()
-				  << "may be it just died" << std::endl;
+				  << " may be it just died" << std::endl;
 		return;
 	}
 	const unsigned int prev_hp = this->hit_points_;

@@ -6,57 +6,46 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:01 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/14 17:19:30 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/16 15:44:27 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 static inline void prtClapTrap(void) {
-	std::cout << "  .-')                ('-.          (`-.    .-') _   _  .-') "
-				 "    ('-.      _ (`-.  \n";
-	std::cout << " ( OO ).             ( OO ).-.    _(OO  )_ (  OO) ) ( \\( -O "
-				 ")   ( OO ).-. ( (OO  ) \n";
-	std::cout << "(_)---\\_)   .-----.  / . --. /,--(_/   ,. \\/     '._ "
-				 ",------.   / . --. /_.`     \\ \n";
-	std::cout << "/    _ |   '  .--./  | \\-.  \\ \\   \\   /(__/|'--...__)|   "
-				 "/`. '  | \\-.  \\(__...--'' \n";
-	std::cout << "\\  :` `.   |  |('-..-'-'  |  | \\   \\ /   / '--.  .--'|  / "
-				 " | |.-'-'  |  ||  /  | | \n";
-	std::cout << " '..`''.) /_) |OO  )\\| |_.'  |  \\   '   /,    |  |   |  "
-				 "|_.' | \\| |_.'  ||  |_.' | \n";
-	std::cout << ".-._)   \\ ||  |`-'|  |  .-.  |   \\     /__)   |  |   |  .  "
-				 "'.'  |  .-.  ||  .___.' \n";
-	std::cout << "\\       /(_'  '--'\\  |  | |  |    \\   /       |  |   |  "
-				 "|\\  \\   |  | |  ||  |      \n";
-	std::cout << " `-----'    `-----'  `--' `--'     `-'        `--'   `--' "
-				 "'--'  `--' `--'`--'      \n";
+	std::cout << "_______             _______                \n";
+	std::cout << "(_______)           (_______)               \n";
+	std::cout << "_____ ____ _____  ____ _  ____ _____ ____  \n";
+	std::cout << "|  ___) ___|____ |/ _  | |/ ___|____ |  _ \\ \n";
+	std::cout << "| |  | |   / ___ ( (_| | | |   / ___ | |_| |\n";
+	std::cout << "|_|  |_|   \\_____|\\___ |_|_|   \\_____|  __/ \n";
+	std::cout << "(_____|	             		     |_|    \n";
 }
 
 int main(void) {
 	prtClapTrap();
+	ClapTrap enemy("enemy");
 	ScavTrap jgo("jgo");
-	ScavTrap enemy("enemy");
+	FragTrap frog("frog");	
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	frog.highFivesGuys();
+	jgo.guardGate();
 
 	jgo.attack(enemy.getName());
 	enemy.takeDamage(jgo.getAttackDamage());
 	enemy.beRepaired(10);
+	
+	frog.attack(enemy.getName());
+	enemy.takeDamage(frog.getAttackDamage());
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
-	enemy.beRepaired(42);
-	enemy.takeDamage(111);
-
-	enemy.attack(jgo.getName());
-
-	enemy.guardGate();
-	jgo.guardGate();
+	jgo.attack(frog.getName());
+	frog.takeDamage(jgo.getAttackDamage());
+	frog.beRepaired(10);
 
 	jgo.prtStatus();
 	enemy.prtStatus();
+	frog.prtStatus();
 
 	return (0);
 }

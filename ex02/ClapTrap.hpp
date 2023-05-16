@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:00 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/14 16:20:03 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/16 15:41:43 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap {
 	const unsigned int init_hit_points_;
 	const unsigned int init_energy_points_;
 	const unsigned int init_attack_damage_;
+	bool canYouDoIt(void) const;
 
    public:
 	ClapTrap();
@@ -47,7 +48,6 @@ class ClapTrap {
 	unsigned int getInitAttackDamage(void) const;
 	void setAttackDamage(unsigned int amount);
 	void prtStatus(void) const;
-	bool canYouDoIt(void) const;
 };
 
 #endif
