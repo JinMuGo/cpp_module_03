@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:49:59 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/16 15:43:51 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/17 20:21:17 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	this->energy_points_--;
 	std::cout << "ClapTrap [" << this->getName() << "] repair ";
 	if (this->hit_points_ + amount > this->getInitHitPoints()) {
-		std::cout << ((amount > this->getInitHitPoints())
+		std::cout << ((amount >= this->getInitHitPoints())
 						  ? this->getInitHitPoints() - this->hit_points_
 						  : this->getInitHitPoints())
 				  << " points" << std::endl;
@@ -151,6 +151,6 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::prtStatus(void) const {
 	std::cout << std::setw(5) << "Name: " << this->getName() << "\n";
 	std::cout << std::setw(5) << "HP: " << this->getHitPoints() << "\n";
-	std::cout << std::setw(5) << "AD: " << this->getAttackDamage() << "\n";
 	std::cout << std::setw(5) << "EP: " << this->getEnergyPoints() << "\n";
+	std::cout << std::setw(5) << "AD: " << this->getAttackDamage() << "\n";
 }
