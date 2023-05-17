@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:44:53 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/17 17:18:22 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/17 20:28:37 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,19 @@ DiamondTrap::DiamondTrap() {
 }
 
 DiamondTrap::DiamondTrap(const std::string name)
-	: ClapTrap(name + "_clap_name"),
+	: ClapTrap(name + "_clap_name", FragTrap::init_hit_points_,
+			   ScavTrap::init_energy_points_, FragTrap::init_attack_damage_),
 	  ScavTrap(),
 	  FragTrap(),
-	  name_(name),
-	  hit_points_(FragTrap::getInitHitPoints()),
-	  energy_points_(ScavTrap::energy_points_),
-	  attack_damage_(FragTrap::attack_damage_) {
+	  name_(name) {
 	std::cout << DTP_CTOR << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& inst)
 	: ClapTrap(inst.ClapTrap::getName(), inst.getHitPoints(),
 			   inst.getEnergyPoints(), inst.getAttackDamage()),
-	  ScavTrap(),
-	  FragTrap(),
-{
+	  ScavTrap(inst),
+	  FragTrap(inst) {
 	std::cout << DTP_CPY_CTOR << std::endl;
 	*this = inst;
 }
@@ -58,6 +55,14 @@ void DiamondTrap::attack(const std::string& target) {
 }
 
 void DiamondTrap::whoAmI() {
-	std::cout << "hi my name is " << this->getName() << "nice to meet you" << std::endl;
-	std::cout << "and my base class name is " << this->ClapTrap::getName() << " hi :)" << std::endl;
+	std::cout << "hi my name is " << this->getName() << " nice to meet you ";
+	std::cout << "and my base class name is " << this->ClapTrap::getName()
+			  << " hi :)" << std::endl;
+}
+
+void DiamondTrap::prtStatus(void) const {
+	std::cout << std::setw(5) << "Name: " << this->name_ << "\n";
+	std::cout << std::setw(5) << "HP: " << this->getHitPoints() << "\n";
+	std::cout << std::setw(5) << "AD: " << this->getAttackDamage() << "\n";
+	std::cout << std::setw(5) << "EP: " << this->getEnergyPoints() << "\n";
 }

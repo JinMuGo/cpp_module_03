@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/17 14:44:55 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/17 19:50:30 by jgo              ###   ########.fr       */
+/*   Created: 2023/05/14 15:24:25 by jgo               #+#    #+#             */
+/*   Updated: 2023/05/17 20:15:00 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMOND_TRAP_HPP
-#define DIAMOND_TRAP_HPP
+#ifndef SCAV_TRAP_HPP
+#define SCAV_TRAP_HPP
 
-#include "DiamondTrap.h"
+#include "ScavTrap.h"
 
-class DiamondTrap : public ScavTrap, public FragTrap {
-   private:
-	std::string name_;
-
+class ScavTrap : virtual public ClapTrap {
    public:
-	DiamondTrap();
-	DiamondTrap(const DiamondTrap& inst);
-	DiamondTrap(const std::string name);
-	virtual ~DiamondTrap();
-	DiamondTrap& operator=(const DiamondTrap& inst);
+	ScavTrap();
+	ScavTrap(const std::string name);
+	ScavTrap(const ScavTrap& inst);
+	~ScavTrap();
+	ScavTrap& operator=(const ScavTrap& inst);
+	void guardGate();
+
 	virtual void attack(const std::string& target);
-	virtual void prtStatus(void) const;
-	void whoAmI();
+	protected :
+		static const unsigned int init_hit_points_ = 100;
+		static const unsigned int init_energy_points_ = 50;
+		static const unsigned int init_attack_damage_ = 20;
 };
 
 #endif
