@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:01 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/16 15:44:27 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/18 10:02:20 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ int main(void) {
 	frog.highFivesGuys();
 	jgo.guardGate();
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemmmm");
+	enemy.takeDamage(9);
 	enemy.beRepaired(10);
 	
-	frog.attack(enemy.getName());
-	enemy.takeDamage(frog.getAttackDamage());
+	frog.attack("enemy~~");
+	enemy.takeDamage(3);
 
-	jgo.attack(frog.getName());
-	frog.takeDamage(jgo.getAttackDamage());
+	jgo.attack("froggg");
+	frog.takeDamage(8);
 	frog.beRepaired(10);
 
 	jgo.prtStatus();
