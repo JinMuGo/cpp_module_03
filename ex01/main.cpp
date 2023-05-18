@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:01 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/14 17:19:30 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/18 10:04:53 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,29 @@ static inline void prtClapTrap(void) {
 	std::cout << "\\       /(_'  '--'\\  |  | |  |    \\   /       |  |   |  "
 				 "|\\  \\   |  | |  ||  |      \n";
 	std::cout << " `-----'    `-----'  `--' `--'     `-'        `--'   `--' "
-				 "'--'  `--' `--'`--'      \n";
+				 "'--'  `--' `--'`--'      \n\n";
 }
 
 int main(void) {
 	prtClapTrap();
-	ScavTrap jgo("jgo");
+	ClapTrap jgo("jgo");
 	ScavTrap enemy("enemy");
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemy");
+	enemy.takeDamage(10);
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemy");
+	enemy.takeDamage(23);
 	enemy.beRepaired(10);
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemyyy");
+	enemy.takeDamage(32);
 	enemy.beRepaired(42);
 	enemy.takeDamage(111);
 
-	enemy.attack(jgo.getName());
+	enemy.attack("jgooooo");
 
 	enemy.guardGate();
-	jgo.guardGate();
 
 	jgo.prtStatus();
 	enemy.prtStatus();
