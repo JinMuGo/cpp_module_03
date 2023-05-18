@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:01 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/17 20:27:50 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/18 07:51:18 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ int main(void) {
 	DiamondTrap jgo("jgo");
 	FragTrap enemy("enemy");
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemyyyyy......");
+	enemy.takeDamage(20);
 	enemy.highFivesGuys();
 	jgo.guardGate();
 	enemy.beRepaired(100);
@@ -56,13 +56,13 @@ int main(void) {
 
 	ScavTrap jgo2(jgo);
 
-	jgo2.attack(enemy.getName());
+	jgo2.attack("enemyyyy!");
 	jgo2.guardGate();
 
 	ClapTrap enemy2;
 
 	enemy2 = enemy;
-	enemy2.attack(enemy.getName());
+	enemy2.attack("other enemy");
 	jgo.prtStatus();
 	jgo2.prtStatus();
 	enemy2.prtStatus();
