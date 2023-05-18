@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:01 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/13 16:05:21 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/18 08:10:54 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,19 @@ int main(void) {
 	ClapTrap jgo("jgo");
 	ClapTrap enemy("enemy");
 
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemyyyy");
+	enemy.takeDamage(5);
 
-	jgo.setAttackDamage(5);
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemysss");
+	enemy.takeDamage(3);
 	enemy.beRepaired(10);
 
-	jgo.setAttackDamage(9);
-	jgo.attack(enemy.getName());
-	enemy.takeDamage(jgo.getAttackDamage());
+	jgo.attack("enemy");
+	enemy.takeDamage(9);
 	enemy.beRepaired(42);
 	enemy.takeDamage(111);
 
-	enemy.attack(jgo.getName());
+	enemy.attack("jgooo");
 
 	jgo.prtStatus();
 	enemy.prtStatus();
