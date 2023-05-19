@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:44:53 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:56:07 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 13:46:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,26 @@ DiamondTrap::DiamondTrap(const std::string name)
 	std::cout << DTP_CTOR << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& inst)
-	: ClapTrap(inst.ClapTrap::name_, inst.hit_points_, inst.energy_points_,
-			   inst.attack_damage_),
-	  ScavTrap(inst),
-	  FragTrap(inst) {
+DiamondTrap::DiamondTrap(const DiamondTrap& obj)
+	: ClapTrap(obj.ClapTrap::name_, obj.hit_points_, obj.energy_points_,
+			   obj.attack_damage_),
+	  ScavTrap(obj),
+	  FragTrap(obj) {
 	std::cout << DTP_CPY_CTOR << std::endl;
-	*this = inst;
+	*this = obj;
 }
 DiamondTrap::~DiamondTrap() {
 	std::cout << DTP_DTOR << this->name_ << std::endl;
 }
-DiamondTrap& DiamondTrap::operator=(const DiamondTrap& inst) {
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& obj) {
 	std::cout << DTP_CPY_ASGMT_OP_CALL << std::endl;
 
-	if (this != &inst) {
-		this->name_ = inst.name_;
-		this->hit_points_ = inst.hit_points_;
-		this->energy_points_ = inst.energy_points_;
-		this->attack_damage_ = inst.attack_damage_;
-		this->ClapTrap::name_ = inst.ClapTrap::name_;
+	if (this != &obj) {
+		this->name_ = obj.name_;
+		this->hit_points_ = obj.hit_points_;
+		this->energy_points_ = obj.energy_points_;
+		this->attack_damage_ = obj.attack_damage_;
+		this->ClapTrap::name_ = obj.ClapTrap::name_;
 	}
 
 	return (*this);

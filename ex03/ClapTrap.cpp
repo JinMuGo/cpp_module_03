@@ -6,19 +6,25 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:49:59 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:53:47 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 13:50:51 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void)
-	: name_("default"), hit_points_(10), energy_points_(10), attack_damage_(0) {
+	: name_("default"),
+	  hit_points_(ClapTrap::init_hit_points_),
+	  energy_points_(ClapTrap::init_energy_points_),
+	  attack_damage_(ClapTrap::init_attack_damage_) {
 	std::cout << CTP_DFLT_CTOR << std::endl;
 };
 
 ClapTrap::ClapTrap(const std::string name)
-	: name_(name), hit_points_(10), energy_points_(10), attack_damage_(0) {
+	: name_(name),
+	  hit_points_(ClapTrap::init_hit_points_),
+	  energy_points_(ClapTrap::init_energy_points_),
+	  attack_damage_(ClapTrap::init_attack_damage_) {
 	std::cout << CTP_CTR << std::endl;
 };
 
@@ -29,13 +35,13 @@ ClapTrap::ClapTrap(const ClapTrap& obj) {
 ClapTrap::~ClapTrap() {
 	std::cout << CTP_DTOR << this->name_ << std::endl;
 }
-ClapTrap& ClapTrap::operator=(const ClapTrap& inst) {
+ClapTrap& ClapTrap::operator=(const ClapTrap& obj) {
 	std::cout << CTP_CPY_ASGMT_OP_CALL << std::endl;
-	if (this != &inst) {
-		this->name_ = inst.name_;
-		this->energy_points_ = inst.energy_points_;
-		this->attack_damage_ = inst.attack_damage_;
-		this->hit_points_ = inst.hit_points_;
+	if (this != &obj) {
+		this->name_ = obj.name_;
+		this->energy_points_ = obj.energy_points_;
+		this->attack_damage_ = obj.attack_damage_;
+		this->hit_points_ = obj.hit_points_;
 	}
 	return (*this);
 }

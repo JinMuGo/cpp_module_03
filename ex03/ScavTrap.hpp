@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 15:24:25 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:51:33 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 13:46:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class ScavTrap : virtual public ClapTrap {
    public:
 	ScavTrap();
 	ScavTrap(const std::string name);
-	ScavTrap(const ScavTrap& inst);
-	ScavTrap& operator=(const ScavTrap& inst);
+	ScavTrap(const ScavTrap& obj);
+	ScavTrap& operator=(const ScavTrap& obj);
 	void guardGate();
 
 	virtual ~ScavTrap();

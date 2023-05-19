@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:01 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:04:53 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 14:03:57 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,11 @@ int main(void) {
 	prtClapTrap();
 	ClapTrap jgo("jgo");
 	ScavTrap enemy("enemy");
+	ClapTrap *s1 = new ScavTrap("s1");
 
+	s1->attack("hihi");
+
+	delete s1;
 	jgo.attack("enemy");
 	enemy.takeDamage(10);
 
@@ -56,6 +60,7 @@ int main(void) {
 
 	jgo.prtStatus();
 	enemy.prtStatus();
+
 
 	return (0);
 }

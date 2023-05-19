@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 14:44:55 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:55:46 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 13:46:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
    public:
 	DiamondTrap();
-	DiamondTrap(const DiamondTrap& inst);
+	DiamondTrap(const DiamondTrap& obj);
 	DiamondTrap(const std::string name);
-	DiamondTrap& operator=(const DiamondTrap& inst);
+	DiamondTrap& operator=(const DiamondTrap& obj);
 	void whoAmI();
 
 	virtual ~DiamondTrap();

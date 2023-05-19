@@ -6,36 +6,40 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 17:57:42 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:32:15 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 13:50:37 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("scav_trap_default", 100, 100, 30) {
+FragTrap::FragTrap()
+	: ClapTrap("scav_trap_default", FragTrap::init_hit_points_,
+			   FragTrap::init_energy_points_, FragTrap::init_attack_damage_) {
 	std::cout << FTP_DFLT_CTOR << std::endl;
 }
 
-FragTrap::FragTrap(const std::string name) : ClapTrap(name, 100, 100, 30) {
+FragTrap::FragTrap(const std::string name)
+	: ClapTrap(name, FragTrap::init_hit_points_, FragTrap::init_energy_points_,
+			   FragTrap::init_attack_damage_) {
 	std::cout << FTP_CTOR << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap& inst) : ClapTrap(inst) {
+FragTrap::FragTrap(const FragTrap& obj) : ClapTrap(obj) {
 	std::cout << FTP_CPY_CTOR << std::endl;
-	if (this != &inst)
-		*this = inst;
+	if (this != &obj)
+		*this = obj;
 }
 FragTrap::~FragTrap() {
 	std::cout << FTP_DTOR << std::endl;
 }
 
-FragTrap& FragTrap::operator=(const FragTrap& inst) {
+FragTrap& FragTrap::operator=(const FragTrap& obj) {
 	std::cout << FTP_CPY_ASGMT_OP_CALL << std::endl;
-	if (this != &inst) {
-		this->name_ = inst.name_;
-		this->hit_points_ = inst.hit_points_;
-		this->energy_points_ = inst.energy_points_;
-		this->attack_damage_ = inst.attack_damage_;
+	if (this != &obj) {
+		this->name_ = obj.name_;
+		this->hit_points_ = obj.hit_points_;
+		this->energy_points_ = obj.energy_points_;
+		this->attack_damage_ = obj.attack_damage_;
 	}
 	return (*this);
 }

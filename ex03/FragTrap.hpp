@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 17:57:45 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:51:02 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 13:46:47 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class FragTrap : virtual public ClapTrap {
 
    public:
 	FragTrap();
-	FragTrap(const FragTrap& inst);
+	FragTrap(const FragTrap& obj);
 	FragTrap(const std::string name);
-	FragTrap& operator=(const FragTrap& inst);
+	FragTrap& operator=(const FragTrap& obj);
 	void highFivesGuys(void);
 	
 	virtual ~FragTrap();

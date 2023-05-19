@@ -6,7 +6,7 @@
 /*   By: jgo <jgo@student.42seoul.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:50:00 by jgo               #+#    #+#             */
-/*   Updated: 2023/05/18 10:44:36 by jgo              ###   ########.fr       */
+/*   Updated: 2023/05/19 14:05:27 by jgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,13 @@ class ClapTrap {
 	ClapTrap(const std::string name, const unsigned int hit_points,
 			 const unsigned int energy_points,
 			 const unsigned int attack_damage);
-	~ClapTrap();
 	ClapTrap& operator=(const ClapTrap& obj);
-	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
-	virtual void beRepaired(unsigned int amount);
 	void prtStatus(void) const;
+	
+	virtual ~ClapTrap();
+	virtual void attack(const std::string& target);
+	virtual void beRepaired(unsigned int amount);
 };
 
 #endif
